@@ -1,0 +1,19 @@
+{
+     "types": {
+        "Item": {
+            "pluralLabel": "ciclos formativos",
+            "label": "ciclo formativo"
+        },
+        "cen": {
+            "pluralLabel": "centros",
+            "label": "centro"
+        }
+    },
+
+ "properties": {
+        "centros": {
+            "valueType": "item"
+        }
+}
+}
+
