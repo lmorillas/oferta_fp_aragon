@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Programas educativos Aragón</title>
+    <!-- metadata -->
+    <!-- Datos + importadores -->
+    <link href="gradosuperior.js" type="application/json" rel="exhibit/data">
+    <link href="centros.js" type="application/json" rel="exhibit/data">
+    <link href="catalogo.js" type="application/json" rel="exhibit/data">
+
+    <link href="schema.json" type="application/json" rel="exhibit-data">
+    <!-- libs simile-exhibit -->
+    <script src="http://api.simile-widgets.org/exhibit/HEAD/lib/jquery.min.js" type="text/javascript">
+    </script>
+    <link rel="exhibit-extension" href="http://api.simile-widgets.org/exhibit/HEAD/extensions/map/map-extension.js" />
+    <script src="http://api.simile-widgets.org/exhibit/HEAD/exhibit-api.js?locale=es" type="text/javascript"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="//cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    $(document).bind("dataload.exhibit", function() {
+        $("input").addClass("form-control");
+        $('div.exhibit-mapView-map').addClass('img-rounded');
+        $('div.exhibit-facet-body').addClass('img-rounded');
+        jQuery('.mypanel').addClass('panel panel-primary');
+        jQuery('.exhibit-flowingFacet-header').addClass('panel-heading');
+        jQuery('.exhibit-facet-header').addClass('panel-heading');
+    });
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+      });
+    </script>
+
+    <script type="text/javascript">
+    function map_with_borders(mapDiv) {
+
+        var map = new google.maps.Map(
+            mapDiv, {
+                mapTypeId: google.maps.MapTypeId.TERRAIN,
+            });
+
+        var ctaLayer = new google.maps.KmlLayer({
+            url: "http://innovacion.educa.aragon.es/visual2/aragon.kmz",
+            map: map
+        });
+        return map;
+    }
+    </script>
+</head>
+
+<body>
+
+  <div id="myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+       <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Oferta FP-Aragón Curso 2016/17</h4>
+      </div>
+      <div class="modal-body">
+        <p>Visualización de la oferta de FP del Gobierno de Aragón para el curso 2016/17&hellip;</p>
+        <p>Trabajo en proceso a partir de la información publicada en <a href="http://www.educaragon.org/FILES/FP.%20cursos%202016.pdf">http://www.educaragon.org/FILES/FP.%20cursos%202016.pdf</a>&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+    <div class="container-fluid" >
+    <h1 class="text-center">Oferta Formación Profesional - Aragón</h1>
+    <h3 class="text-center">Curso 2016/17</h3>
+
+        <div data-ex-role="exhibit-collection" data-ex-item-types="cen"></div>
+
+        <div class="row " id="content">
+            <div class="col-sm-3">
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, !centros!codigo, .localidad">
+                </div>
+
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros!codigo.familia" data-ex-facet-label="Familia profesional" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
+
+            </div>
+            <div class="col-sm-6">
+
+
+                <!-- información del recurso -->
+                <div class="map-lens" data-ex-item-types="cen" data-ex-role="lens" style="display: none" >
+                    <p style="font-weight: bold;">Centro: <span data-ex-content=".label"></span> </p>
+                    <p ><strong>Ciclos:</strong> <span class="ciclos" data-ex-content="!centros!codigo"></span></p>
+                </div>
+                <!-- mapa -->
+                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa de centros" data-ex-latlng=".latlon" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".tipo" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false"  data-ex-map-constructor="map_with_borders">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros!codigo.grado" data-ex-facet-label="Grado" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
+
+
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
+
+            </div>
+        </div>
+        <footer>
+        </footer>
+    </div>
+</body>
+
+</html>
+
