@@ -78,31 +78,27 @@
             <div class="col-sm-3">
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Buscar en el mapa" data-ex-expressions=".label, !centros!codigo, !centros!codigo.familia, .localidad">
                 </div>
-                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros!codigo" data-ex-facet-label="Familia profesional" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"
-				data-ex-facet-class="HierarchicalFacet" data-ex-uniform-grouping=".familia"
-                 ></div>
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros!codigo" data-ex-facet-label="Familia profesional" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false" data-ex-facet-class="HierarchicalFacet" data-ex-uniform-grouping=".familia"></div>
             </div>
             <div class="col-sm-6">
-                <div data-ex-role="viewPanel" style="padding: 1em 0.5in;">
-                    <!-- información del recurso -->
-                    <div class="map-lens" data-ex-item-types="cen" data-ex-role="lens" style="display: none">
-                        <p style="font-weight: bold;">Centro: <span data-ex-content=".label"></span> </p>
-                        <p><strong>Ciclos:</strong> <span class="ciclos" data-ex-content="!centros!codigo"></span></p>
-                    </div>
-                    <div class="map-lens" data-ex-item-types="catalogo" data-ex-role="lens" style="display: none">
-                        <p><span style="font-weight: bold;">Familia prof:</span> <span data-ex-content=".familia"></span> </p>
-                        <p> <span style="font-weight: bold;">Ciclo:</span> <span data-ex-content=".label"></span> </p>
-                        <p> <a target="_blank" data-ex-href-subcontent="https://www.google.es/search?q=site:fp.educaragon.org  {{.codigo}}" >Más información</a>
-                    </div>
-                    <!-- mapa -->
-                    <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa de centros" data-ex-latlng=".latlon" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".tipo" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false" data-ex-map-constructor="map_with_borders">
-                    </div>
+                <!-- información del recurso -->
+                <div class="map-lens" data-ex-item-types="cen" data-ex-role="lens" style="display: none">
+                    <p style="font-weight: bold;">Centro: <span data-ex-content=".label"></span> </p>
+                    <p><strong>Ciclos:</strong> <span class="ciclos" data-ex-content="!centros!codigo"></span></p>
+                </div>
+                <div class="map-lens" data-ex-item-types="catalogo" data-ex-role="lens" style="display: none">
+                    <p><span style="font-weight: bold;">Familia prof:</span> <span data-ex-content=".familia"></span> </p>
+                    <p> <span style="font-weight: bold;">Ciclo:</span> <span data-ex-content=".label"></span> </p>
+                    <p> <a target="_blank" data-ex-href-subcontent="https://www.google.es/search?q=site:fp.educaragon.org  {{.codigo}}">Más información</a>
+                </div>
+                <!-- mapa -->
+                <div data-ex-role="view" data-ex-view-class="Map" data-ex-label="Mapa de centros" data-ex-latlng=".latlon" data-ex-center="41.6561, -0.8773" data-ex-zoom="7" data-ex-map-height="500" data-ex-show-tool-box="true" data-ex-color-key=".tipo" data-ex-shape-width="18" data-ex-shape-height="18" data-ex-pin="false" data-ex-map-constructor="map_with_borders">
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros!codigo.grado" data-ex-facet-label="Grado" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression=".tipo" data-ex-facet-label="Tipo de Centro" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="false"></div>
-                 <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros!codigo" data-ex-facet-label="Ciclo Formativo" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="true"></div>
+                <div class="mypanel" data-ex-role="exhibit-facet" data-ex-expression="!centros!codigo" data-ex-facet-label="Ciclo Formativo" data-ex-collapsible="true" data-ex-show-missing="false" data-ex-scroll="true"></div>
             </div>
         </div>
         <footer>
@@ -111,4 +107,3 @@
 </body>
 
 </html>
-
